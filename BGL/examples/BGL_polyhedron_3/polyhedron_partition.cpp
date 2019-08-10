@@ -55,11 +55,10 @@ int main(int argc, char** argv)
   typedef PM::Facet_iterator                   							Facet_iterator;
   typedef PM::Halfedge_around_facet_circulator 							Halfedge_facet_circulator;
   
-  for (Facet_iterator i = pm.facets_begin(); i != pm.facets_end(); ++i)
-	{
-	    Halfedge_facet_circulator j = i->facet_begin();
-      // Use segmId to identify/color every segment of your polihedron where every face belonging to a certain segment will have the same id/color      
-      int segmId = get(partition_id_map, j->face());					
+  for (Facet_iterator i = pm.facets_begin(); i != pm.facets_end(); ++i){
+	  Halfedge_facet_circulator j = i->facet_begin();
+	  // Use segmId to identify/color every segment of your polihedron where every face belonging to a certain segment will have the same id/color      
+	  int segmId = get(partition_id_map, j->face());
   }
 
   return EXIT_SUCCESS;
